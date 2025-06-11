@@ -1,0 +1,137 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        // This is the theme of your application.
+
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
+        useMaterial3: true,
+      ),
+      home: const MyHomePage(title: 'CountShades', size:"person"),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title, required this.size});
+
+
+  final String title;
+  final String size;
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  int _counter = 0;
+  var a= [
+  "cool", "smart", "pretty", "funny",
+  "kind", "brilliant", "charming", "amazing",
+  "creative", "talented", "friendly", "confident",
+  "inspiring", "helpful", "thoughtful", "caring",
+  "motivated", "optimistic", "witty", "generous"
+  ];
+  String nam = "Calm";
+
+  void _incrementCounter() {
+    setState(() {
+
+      _counter++;
+      if (_counter <= a.length){
+        nam = a[_counter];}
+    });
+  }
+  void _decrementCounter() {
+    setState(() {
+
+      _counter--;
+      if (_counter <= a.length){
+        nam = a[_counter];}
+    });
+  }
+
+
+    @override
+    Widget build(BuildContext context) {
+
+      return Scaffold(
+        appBar: AppBar(
+
+           backgroundColor:Colors.amber,
+          // Theme
+          //     .of(context)
+          //     .colorScheme
+          //     .inversePrimary,
+
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween, // Align items at opposite ends
+            children: [
+              Text(widget.title),  // Left-aligned title
+              Text(widget.size),  // Right-aligned variable
+            ],
+          ),
+        ),
+        body: Center(
+          // Center is a layout widget. It takes a single child and positions it
+          // in the middle of the parent.
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              Text(
+                'PERSon',
+                style: Theme
+                    .of(context)
+                    .textTheme
+                    .displayLarge,
+              ),
+              Text(
+                '$_counter',
+                style: Theme
+                    .of(context)
+                    .textTheme
+                    .displayMedium,
+              ),
+              Text(
+                nam,
+                style: Theme
+                    .of(context)
+                    .textTheme
+                    .displayLarge,
+              ),
+            ],
+          ),
+        ),
+
+        floatingActionButton: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          // Align buttons to the right
+          children: [
+            FloatingActionButton(
+              onPressed: _incrementCounter,
+              tooltip: 'Increment',
+              child: const Icon(Icons.ac_unit_rounded),
+            ),
+            // const SizedBox(width: 336), // Space between the buttons
+            FloatingActionButton(
+              onPressed: _decrementCounter,
+              tooltip: 'Decrement',
+              child: const Icon(Icons.remove),
+            ),
+          ],
+        ), // This trailing comma makes auto-formatting nicer for build methods.
+      );
+    }
+  }
