@@ -19,6 +19,6 @@ class Solution:
         totsum = sum(nums)
         if totsum%2: return False
         s= totsum//2
-        return f(nums, s)
+        return f(nums, s) #submittin one more time
 
         
