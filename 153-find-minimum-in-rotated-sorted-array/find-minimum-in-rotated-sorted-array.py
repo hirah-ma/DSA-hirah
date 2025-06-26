@@ -5,6 +5,9 @@ class Solution:
         mini = float('inf')
         while low <= high :
             mid = (low + high)//2
+            #extr if u want to break before
+            if nums[low]<=nums[high]:
+                mini = min(mini,nums[low])
             if nums[low]<=nums[mid] :# left sorted
                 mini = min(mini, nums[low])
                 low = mid+1
