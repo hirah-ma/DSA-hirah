@@ -1,0 +1,1 @@
+<h2>find-the-index-of-the-first-occurrence-in-a-string Notes</h2><hr>[ Time taken: 3hrs 21m 59s ]
